@@ -13,3 +13,7 @@ resource "aws_subnet" "public_subnet" {
     cidr_block = var.public_subnet
   
 }
+
+provider "aws" {
+  region = var.region
+}

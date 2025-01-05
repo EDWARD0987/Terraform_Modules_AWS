@@ -12,3 +12,7 @@ variable "public_subnet" {
     default = "10.0.2.0/24"
   
 }
+
+variable "region" {
+  default = "us-east-1"
+}
