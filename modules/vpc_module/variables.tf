@@ -16,3 +16,24 @@ variable "public_subnet" {
 variable "region" {
   default = "us-east-1"
 }
+
+variable "ProjectName" {
+  description = "Name of the project"
+}
+
+variable "env" {
+  description = "Environment"
+}
+
+variable "ManagedBy" {
+  description = "Who is managing this project"
+}
+
+variable "instance_type" {
+  description = "t2.micro"
+}
+
+variable "ami_id" {
+  description = "ami-05576a079321f21f8"
+  
+}
