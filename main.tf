@@ -1,4 +1,4 @@
 module "mymodule" {
-    source = "https://github.com/EDWARD0987/Terraform_Modules_AWS"     
-  
+  source = "./modules/vpc_module" #"https://github.com/EDWARD0987/Terraform_Modules_AWS"     
+
 }
