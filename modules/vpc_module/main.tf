@@ -1,5 +1,26 @@
+
+provider "aws" {
+  region = var.region
+  default_tags {
+    tags = {
+      Name = "Apache"
+      ProjectName = "Webserver_Project"
+      Environment = "Dev"
+      ManagedBy   = "Edward Doku"
+      Email       = "edwarddoku123@gmail.com"
+    
+    }
+  }
+}
+
+
+
 resource "aws_vpc" "my_vpc" {
   cidr_block = var.vpc_cidr
+  tags = {
+    Name = "Webserver_Vpc"  
+    
+  }
 }
 
 resource "aws_subnet" "private_subnet" {
@@ -19,32 +40,10 @@ resource "aws_instance" "example_server" {
   instance_type = "t2.micro"
 
   tags = {
-    Name         = "$var.name"                      #"Apache_Webserver"  # to do
-    Project      = "$var.projectname"
-    Environment  = "$var.environment"
+    Name         = "Apache_Webserver"                     
   }
 
 }
 
 
 
-# resource "aws_instance" "app_server_ec2" {
-#   ami                    = var.ami_id    #data.aws_ami.amazon_linux.id  var.app_server_ami_id 
-#   instance_type          = var.instance_type
-#   subnet_id              = var.private_subnet.id
-#   monitoring             = false # was true earlier
-#   vpc_security_group_ids = [aws_security_group.sg.id]
-#   user_data              = filebase64("user_data.sh") # file("user_data.sh") 
-
-#   tags = merge(
-#     local.common_tags,
-#     {
-#       "Name" = "${var.ProjectName}-${var.env}-ec2",    # to do
-#     },
-#   )
-# }
-
-
-provider "aws" {
-  region = var.region
-}
