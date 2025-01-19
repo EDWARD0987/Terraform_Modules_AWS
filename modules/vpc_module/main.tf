@@ -19,9 +19,13 @@ resource "aws_instance" "example_server" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Apache_Webserver"  # to do
+    Name         = "$var.name"                      #"Apache_Webserver"  # to do
+    Project      = "$var.projectname"
+    Environment  = "$var.environment"
   }
+
 }
+
 
 
 # resource "aws_instance" "app_server_ec2" {

@@ -37,3 +37,5 @@ variable "ami_id" {
   description = "ami-05576a079321f21f8"
   
 }
+
+
